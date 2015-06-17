@@ -6,6 +6,7 @@ import javax.swing.*;
 
 public class BezahlUI
 {
+    //TEST
     JDialog _dialog;
     JButton _okButton;
     JButton _cancelButton;
