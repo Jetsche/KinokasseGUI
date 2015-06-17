@@ -6,16 +6,15 @@ import javax.swing.*;
 
 public class BezahlUI
 {
-    //TESTdsa
-    JDialog _dialog;
-    JButton _okButton;
-    JButton _cancelButton;
-    JLabel _gesamtbetragText;
-    JLabel _bezahlBetragText;
-    JLabel _differenzBetragText;
-    JTextField _gesamtbetrag;
-    JTextField _bezahlBetrag;
-    JTextField _differenzBetrag;
+    private JDialog _dialog;
+    private JButton _okButton;
+    private JButton _cancelButton;
+    private JLabel _gesamtbetragText;
+    private JLabel _bezahlBetragText;
+    private JLabel _differenzBetragText;
+    private JTextField _gesamtbetrag;
+    private JTextField _bezahlBetrag;
+    private JTextField _differenzBetrag;
     
     public BezahlUI()
     {
@@ -84,6 +83,21 @@ public class BezahlUI
     private void initCancelButton()
     {
         _cancelButton = new JButton("Abbrechen");
+    }
+    
+    public JButton getOkButton()
+    {
+        return _okButton;
+    }
+    
+    public JButton getCancelButton()
+    {
+        return _cancelButton;
+    }
+    
+    public void closeUI()
+    {
+        _dialog.dispose();
     }
 
 }
