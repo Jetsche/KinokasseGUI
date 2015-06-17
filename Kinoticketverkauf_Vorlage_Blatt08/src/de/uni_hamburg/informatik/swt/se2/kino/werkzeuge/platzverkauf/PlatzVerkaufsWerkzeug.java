@@ -93,9 +93,10 @@ public class PlatzVerkaufsWerkzeug
      */
     private void fuehreBarzahlungDurch()
     {
-        BezahlWerkzeug bezahlWerkzeug = new BezahlWerkzeug();
+
+        BezahlWerkzeug bezahlWerkzeug = new BezahlWerkzeug(this, _vorstellung);
         bezahlWerkzeug.registriereUIAktionen();
-        verkaufePlaetze(_vorstellung);
+        //verkaufePlaetze(_vorstellung);
     }
 
     /**
@@ -172,7 +173,7 @@ public class PlatzVerkaufsWerkzeug
     /**
      * Aktualisiert den Platzplan basierend auf der ausgwählten Vorstellung.
      */
-    private void aktualisierePlatzplan()
+    public void aktualisierePlatzplan()
     {
         if (_vorstellung != null)
         {
@@ -218,7 +219,7 @@ public class PlatzVerkaufsWerkzeug
     /**
      * Verkauft die ausgewählten Plaetze.
      */
-    private void verkaufePlaetze(Vorstellung vorstellung)
+    public void verkaufePlaetze(Vorstellung vorstellung)
     {
         Set<Platz> plaetze = _ui.getPlatzplan()
             .getAusgewaehltePlaetze();
