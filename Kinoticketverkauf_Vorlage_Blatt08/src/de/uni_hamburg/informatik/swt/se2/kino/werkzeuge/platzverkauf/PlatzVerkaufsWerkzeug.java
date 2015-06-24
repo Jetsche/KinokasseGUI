@@ -56,7 +56,7 @@ public class PlatzVerkaufsWerkzeug
      * Fügt der UI die Funktionalität hinzu mit entsprechenden Listenern.
      */
     private void registriereUIAktionen()
-    {
+    {//sajdbhsajdsajd
         _ui.getVerkaufenButton()
             .addActionListener(new ActionListener()
             {
