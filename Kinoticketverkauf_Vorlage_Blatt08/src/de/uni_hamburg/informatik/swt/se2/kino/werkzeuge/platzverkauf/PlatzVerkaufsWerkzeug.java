@@ -56,7 +56,7 @@ public class PlatzVerkaufsWerkzeug
      * Fügt der UI die Funktionalität hinzu mit entsprechenden Listenern.
      */
     private void registriereUIAktionen()
-    {//sajdbhsajdsajd
+    {
         _ui.getVerkaufenButton()
             .addActionListener(new ActionListener()
             {
@@ -236,5 +236,24 @@ public class PlatzVerkaufsWerkzeug
             .getAusgewaehltePlaetze();
         vorstellung.stornierePlaetze(plaetze);
         aktualisierePlatzplan();
+    }
+    
+    /**
+     * Gibt den Preis für das Barzahlungsfenster zurück.
+     * @param plaetze
+     * @return Der Preis als int
+     */
+    public int getPreisFuerBarzahlung(Set <Platz> plaetze)
+    {
+        if (istVerkaufenMoeglich(plaetze) || istStornierenMoeglich(plaetze))
+        {
+            int preis = _vorstellung.getPreisFuerPlaetze(plaetze);
+            return preis;
+            
+        }
+        else
+        {
+           return 0;
+        }
     }
 }
