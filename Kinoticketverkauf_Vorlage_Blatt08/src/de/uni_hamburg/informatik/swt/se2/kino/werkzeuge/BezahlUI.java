@@ -16,12 +16,12 @@ public class BezahlUI
     private JTextField _bezahlBetrag;
     private JTextField _differenzBetrag;
     
-    public BezahlUI()
+    public BezahlUI(int preis)
     {
         initDialog();
-        initGesamtBetrag();
+        initGesamtBetrag(preis);
         initBezahlen();
-        initDifferenz();
+        initDifferenz(preis);
         initOkButton();
         initCancelButton();
         JPanel panel = new JPanel();
@@ -53,10 +53,11 @@ public class BezahlUI
         _dialog.add(panel);
     }
     
-    private void initGesamtBetrag()
+    private void initGesamtBetrag(int preis)
     {
         _gesamtbetragText = new JLabel("Gesamtbetrag:");
         _gesamtbetrag = new JTextField(25);
+        _gesamtbetrag.setText(preis + "");
         _gesamtbetrag.setEditable(false);
         JPanel panel = new JPanel();
         panel.add(_gesamtbetragText);
@@ -64,7 +65,7 @@ public class BezahlUI
         _dialog.add(panel);
     }
     
-    private void initDifferenz()
+    private void initDifferenz(int preis)
     {
         _differenzBetragText = new JLabel("Rückgabebetrag:");
         _differenzBetrag = new JTextField(25);
@@ -99,5 +100,14 @@ public class BezahlUI
     {
         _dialog.dispose();
     }
+    
+    public JTextField getEingabefeld()
+    {
+        return _bezahlBetrag;
+    }
 
+    public JTextField getDifferenzBetragFeld()
+    {
+        return _differenzBetrag;
+    }
 }

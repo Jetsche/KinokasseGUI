@@ -103,4 +103,6 @@ public final class Geldbetrag
     {
         return getFormatiertenString();
     }
+    
+
 }

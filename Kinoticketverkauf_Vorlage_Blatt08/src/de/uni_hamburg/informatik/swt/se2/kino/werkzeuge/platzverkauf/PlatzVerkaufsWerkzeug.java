@@ -29,6 +29,8 @@ public class PlatzVerkaufsWerkzeug
     private Vorstellung _vorstellung;
 
     private PlatzVerkaufsWerkzeugUI _ui;
+    
+    private int _preisFuerBarzahlung;
 
     /**
      * Initialisiert das PlatzVerkaufsWerkzeug.
@@ -94,7 +96,7 @@ public class PlatzVerkaufsWerkzeug
     private void fuehreBarzahlungDurch()
     {
 
-        BezahlWerkzeug bezahlWerkzeug = new BezahlWerkzeug(this, _vorstellung);
+        BezahlWerkzeug bezahlWerkzeug = new BezahlWerkzeug(this, _vorstellung, _preisFuerBarzahlung);
         bezahlWerkzeug.registriereUIAktionen();
         //verkaufePlaetze(_vorstellung);
     }
@@ -119,15 +121,18 @@ public class PlatzVerkaufsWerkzeug
      */
     private void aktualisierePreisanzeige(Set<Platz> plaetze)
     {
+        
         if (istVerkaufenMoeglich(plaetze))
         {
             int preis = _vorstellung.getPreisFuerPlaetze(plaetze);
+            _preisFuerBarzahlung = preis;
             _ui.getPreisLabel()
                 .setText("Gesamtpreis: " + preis + " Eurocent");
         }
         else if (istStornierenMoeglich(plaetze))
         {
             int preis = _vorstellung.getPreisFuerPlaetze(plaetze);
+            _preisFuerBarzahlung = preis;
             _ui.getPreisLabel()
                 .setText("Gesamtstorno: " + preis + " Eurocent");
         }
@@ -236,24 +241,5 @@ public class PlatzVerkaufsWerkzeug
             .getAusgewaehltePlaetze();
         vorstellung.stornierePlaetze(plaetze);
         aktualisierePlatzplan();
-    }
-    
-    /**
-     * Gibt den Preis für das Barzahlungsfenster zurück.
-     * @param plaetze
-     * @return Der Preis als int
-     */
-    public int getPreisFuerBarzahlung(Set <Platz> plaetze)
-    {
-        if (istVerkaufenMoeglich(plaetze) || istStornierenMoeglich(plaetze))
-        {
-            int preis = _vorstellung.getPreisFuerPlaetze(plaetze);
-            return preis;
-            
-        }
-        else
-        {
-           return 0;
-        }
-    }
+    }    
 }
