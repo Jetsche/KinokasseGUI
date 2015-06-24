@@ -4,6 +4,8 @@ import java.awt.GridLayout;
 
 import javax.swing.*;
 
+import de.uni_hamburg.informatik.swt.se2.kino.materialien.Geldbetrag;
+
 public class BezahlUI
 {
     private JDialog _dialog;
@@ -57,7 +59,7 @@ public class BezahlUI
     {
         _gesamtbetragText = new JLabel("Gesamtbetrag:");
         _gesamtbetrag = new JTextField(25);
-        _gesamtbetrag.setText(preis + "");
+        _gesamtbetrag.setText(new Geldbetrag(preis).getFormatiertenString());
         _gesamtbetrag.setEditable(false);
         JPanel panel = new JPanel();
         panel.add(_gesamtbetragText);

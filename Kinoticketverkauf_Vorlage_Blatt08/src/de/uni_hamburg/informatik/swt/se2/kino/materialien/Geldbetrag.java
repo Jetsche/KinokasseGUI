@@ -93,6 +93,7 @@ public final class Geldbetrag
                     && (_euroAnteil == other._euroAnteil);
         }
         return result;
+
     }
 
     /**
