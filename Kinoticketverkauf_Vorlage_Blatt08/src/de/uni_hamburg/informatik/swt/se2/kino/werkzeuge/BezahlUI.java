@@ -32,13 +32,13 @@ public class BezahlUI
         _dialog.add(panel);
         _dialog.setAlwaysOnTop(true);
         _dialog.pack();
-        _dialog.setVisible(true);
         _dialog.setBounds(200, 400, 500, 200);
     }
     
     private void initDialog()
     {
         _dialog = new JDialog();
+        _dialog.setModal(true);
         _dialog.setTitle("Barzahlung");
        _dialog.setLayout(new GridLayout(4,2));
     }
@@ -80,6 +80,7 @@ public class BezahlUI
     private void initOkButton()
     {
         _okButton = new JButton("OK");
+        _okButton.setEnabled(false);
        
     }
     
@@ -111,5 +112,10 @@ public class BezahlUI
     public JTextField getDifferenzBetragFeld()
     {
         return _differenzBetrag;
+    }
+    
+    public void setDialogVisible()
+    {
+        _dialog.setVisible(true);
     }
 }

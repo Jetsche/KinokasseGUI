@@ -64,6 +64,7 @@ public class BezahlWerkzeug
           
         }
         );
+        _ui.setDialogVisible();
     }
     
     private int berechneDifferenz(int Gesamtbetrag, String Eingabebetrag)
